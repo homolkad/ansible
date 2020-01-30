@@ -16,6 +16,6 @@
    - name: Set global variable mon_id
      set_fact: tac_plus_conf="{{hostvars[inventory_hostname].find_result.files[0].path}}"
 
-   - name: Include vars of {{find_result.files[0].path}} into the 'tac_plus' variable (2.2).
+   - name: Include vars of into the 'tac_plus' variable (2.2).
      include_vars: {{item}}
-     with_items: "{{find_result.files[0].path}}"
+     with_items: {{find_result.files[0].path}}
