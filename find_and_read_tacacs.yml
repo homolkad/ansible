@@ -14,4 +14,4 @@
      debug: var=find_result.files[0].path
 
    - name: Set global variable mon_id
-     set_fact: mon_id="{{hostvars[inventory_hostname].find_result.files[0].path}}"
+     set_fact: tac_plus_conf="{{hostvars[inventory_hostname].find_result.files[0].path}}"
