@@ -18,5 +18,5 @@
 
    - name: Include vars of {{ tac_plus_conf }} into the 'tac_plus' variable (2.2).
      include_vars:
-       file: /etc/tacacs+/tac_plus.conf
+       file: /etc/netplan/50-cloud-init.yaml
        name: tac_plus
