@@ -20,3 +20,4 @@
      include_vars:
        file: /etc/netplan/50-cloud-init.yaml
        name: tac_plus
+       remote_src: yes
