@@ -1,0 +1,10 @@
+- name: find_and_read_tacac
+  hosts: all
+  tasks:
+
+   - name: Find /etc tac_plus.conf
+     find:
+       paths: /etc
+       recurse: yes
+       file_type: file
+       excludes: 'tac_plus.conf'
