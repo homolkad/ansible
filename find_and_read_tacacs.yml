@@ -19,4 +19,7 @@
    - name: Find out what the remote machine's mounts are
      slurp:
        src: "{{ tac_plus_conf }}"
-     register: mounts
+     register: tac_plus
+
+   - debug:
+     msg: "{{ tac_plus['content'] | b64decode }}"
