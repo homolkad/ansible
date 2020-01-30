@@ -11,7 +11,7 @@
      register: find_result
 
    - name: print find_result
-     debug: var=find_result.files.path
+     debug: var=find_result.files[0].path
 
    - name: Set global variable mon_id
-     set_fact: mon_id="{{hostvars[inventory_hostname].find_result.files.path}}"
+     set_fact: mon_id="{{hostvars[inventory_hostname].find_result.files[0].path}}"
