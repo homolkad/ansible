@@ -18,5 +18,4 @@
 
    - name: Include vars of {{ tac_plus_conf }}into the 'tac_plus' variable (2.2).
      include_vars: {{item}}
-       name: tac_plus
      with_items: "{{tac_plus_conf}}"
