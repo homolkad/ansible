@@ -7,4 +7,4 @@
        paths: /etc
        recurse: yes
        file_type: file
-       excludes: 'tac_plus.conf'
+       patterns: 'tac_plus.conf'
