@@ -16,8 +16,7 @@
    - name: Set global variable mon_id
      set_fact: tac_plus_conf="{{hostvars[inventory_hostname].find_result.files[0].path}}"
 
-   - name: Include vars of {{ tac_plus_conf }} into the 'tac_plus' variable (2.2).
-     include_vars:
-       file: /etc/netplan/50-cloud-init.yaml
-       name: tac_plus
-       remote_src: yes
+   - name: Find out what the remote machine's mounts are
+     slurp:
+       src: "{{ tac_plus_conf }}"
+     register: mounts
