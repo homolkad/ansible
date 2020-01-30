@@ -8,3 +8,10 @@
        recurse: yes
        file_type: file
        patterns: 'tac_plus.conf'
+     register: find_result
+
+   - name: print find_result
+     debug: var=find_result.files.path
+
+   - name: Set global variable mon_id
+     set_fact: mon_id="{{hostvars[inventory_hostname].find_result.files.path}}"
