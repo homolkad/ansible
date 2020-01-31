@@ -22,4 +22,4 @@
      register: tac_plus
 
    - name: Decoding output
-     debug: "{{ tac_plus['content'] | b64decode }}"
+     debug: "{{ tac_plus['content'] }}"
