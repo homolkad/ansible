@@ -19,7 +19,18 @@
    - name: Find out what the remote machine's mounts are
      slurp:
        src: "{{ tac_plus_conf }}"
-     register: tac_plus
+     register: tac_plus_content
+
+   - name: Set global variable mon_id
+     set_fact: tac_plus="{{hostvars[inventory_hostname].tac_plus_content['content']}}"
 
    - name: Decoding output
-     debug: "{{ tac_plus['content'] }}"
+     debug: var="{{ tac_plus_content['content'] }}"
+
+   - name: Decoding output
+     debug:
+       var: "{{ tac_plus_content['content'] }}"
+
+   - name: Decoding output
+     debug:
+       msg: "{{ tac_plus_content['content'] }}"
