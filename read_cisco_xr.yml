@@ -8,17 +8,16 @@
      iosxr_facts:
        gather_subset: all
        gather_network_resources: all
-       provider: ""
+       provider:
+         host: 192.168.168.205
+         password: admin
+         username: admin
      register: result_fact
 
    - name: print find_result
      debug:
        msg: "result_fact"
-  vars:
-    cli:
-      host: ""
-      username: ""
-      password: ""
+
 #   - name: Set global variable mon_id
 #     set_fact: tac_plus_conf="{{hostvars[inventory_hostname].find_result.files[0].path}}"
 #
