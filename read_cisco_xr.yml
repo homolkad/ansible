@@ -1,0 +1,36 @@
+- name: find_and_read_tacac
+  hosts: all
+  tasks:
+
+   - name: Get fact
+     iosxr_facts:
+       gather_subset: all
+       gather_network_resources: all
+     register: result_fact
+
+   - name: print find_result
+     debug:
+       msg: "result_fact"
+
+#   - name: Set global variable mon_id
+#     set_fact: tac_plus_conf="{{hostvars[inventory_hostname].find_result.files[0].path}}"
+#
+#   - name: Find out what the remote machine's mounts are
+#     slurp:
+#       src: "{{ tac_plus_conf }}"
+#     register: tac_plus_content
+#
+#   - name: Set global variable mon_id
+#     set_fact:
+#       tac_plus: "{{ hostvars[inventory_hostname].tac_plus_content['content'] | b64decode }}"
+#
+##   - name: Decoding output1
+##     debug: var="{{ tac_plus_content['content'] | b64decode }}"
+##
+##   - name: Decoding output2
+##     debug:
+##       var: "{{ tac_plus_content['content'] | b64decode }}"
+#
+#   - name: Decoding output3
+#     debug:
+#       msg: "tac_plus"

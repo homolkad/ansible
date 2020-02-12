@@ -34,4 +34,4 @@
 
    - name: Decoding output3
      debug:
-       msg: "{{ tac_plus_content['content'] | b64decode }}"
+       msg: "tac_plus"
