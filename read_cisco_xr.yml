@@ -1,17 +1,24 @@
 - name: find_and_read_tacac
   hosts: all
+  gather_facts: no
+  connection: local
   tasks:
 
    - name: Get fact
      iosxr_facts:
        gather_subset: all
        gather_network_resources: all
+       provider: ""
      register: result_fact
 
    - name: print find_result
      debug:
        msg: "result_fact"
-
+  vars:
+    cli:
+      host: ""
+      username: ""
+      password: ""
 #   - name: Set global variable mon_id
 #     set_fact: tac_plus_conf="{{hostvars[inventory_hostname].find_result.files[0].path}}"
 #
