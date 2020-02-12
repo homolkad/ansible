@@ -15,8 +15,7 @@
      register: result_fact
 
    - name: print find_result
-     debug:
-       msg: "result_fact"
+     debug: var=result_fact
 
 #   - name: Set global variable mon_id
 #     set_fact: tac_plus_conf="{{hostvars[inventory_hostname].find_result.files[0].path}}"
