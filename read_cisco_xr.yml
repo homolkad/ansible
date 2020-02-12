@@ -7,7 +7,7 @@
    - name: Get fact
      iosxr_facts:
        gather_subset: all
-       gather_network_resources: all
+#       gather_network_resources: all
        provider:
          host: 192.168.168.205
          password: admin
