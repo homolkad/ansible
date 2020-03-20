@@ -1,22 +1,52 @@
-- name: read_ios
-  hosts: all
-  gather_facts: no
-  connection: local
+Playbook:
+- name: Simple test
+  hosts: test
+  connection: network_cli
+  gather_facts: false
   tasks:
+     - name: Change hostname
+       ios_facts:
+          gather_subset: all
+#       ios_command:
+#          commands:
+#             - hostname ThisIsATest
+       become_method: enable
+       become: yes
 
-   - name: Get fact
-     ios_facts:
-       gather_subset: all
-#       gather_network_resources: all
-       provider:
-         host: 192.168.168.205
-         password: admin
-         username: admin
-       authorize: yes
-     register: result_fact
+Host file
+all:
+  children:
+    test:
+      hosts:
+        192.168.168.205
 
-   - name: print find_result
-     debug: var=result_fact
+Group Vars:
+ansible_connection: network_cli
+ansible_network_os: ios
+ansible_user: admin
+ansible_ssh_pass: admin
+absible_become_pass: admin
+
+
+#- name: read_ios
+#  hosts: all
+#  gather_facts: no
+#  connection: local
+#  tasks:
+#
+#   - name: Get fact
+#     ios_facts:
+#       gather_subset: all
+##       gather_network_resources: all
+#       provider:
+#         host: 192.168.168.205
+#         password: admin
+#         username: admin
+#       authorize: yes
+#     register: result_fact
+#
+#   - name: print find_result
+#     debug: var=result_fact
 
 #   - name: Set global variable mon_id
 #     set_fact: tac_plus_conf="{{hostvars[inventory_hostname].find_result.files[0].path}}"
