@@ -1,0 +1,41 @@
+- name: read_ios
+  hosts: all
+  gather_facts: no
+  connection: local
+  tasks:
+
+   - name: Get fact
+     ios_facts:
+       gather_subset: all
+#       gather_network_resources: all
+       provider:
+         host: 192.168.168.205
+         password: admin
+         username: admin
+     register: result_fact
+
+   - name: print find_result
+     debug: var=result_fact
+
+#   - name: Set global variable mon_id
+#     set_fact: tac_plus_conf="{{hostvars[inventory_hostname].find_result.files[0].path}}"
+#
+#   - name: Find out what the remote machine's mounts are
+#     slurp:
+#       src: "{{ tac_plus_conf }}"
+#     register: tac_plus_content
+#
+#   - name: Set global variable mon_id
+#     set_fact:
+#       tac_plus: "{{ hostvars[inventory_hostname].tac_plus_content['content'] | b64decode }}"
+#
+##   - name: Decoding output1
+##     debug: var="{{ tac_plus_content['content'] | b64decode }}"
+##
+##   - name: Decoding output2
+##     debug:
+##       var: "{{ tac_plus_content['content'] | b64decode }}"
+#
+#   - name: Decoding output3
+#     debug:
+#       msg: "tac_plus"
