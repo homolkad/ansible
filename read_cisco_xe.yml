@@ -1,6 +1,6 @@
 Playbook:
 - name: Simple test
-  hosts: test
+  hosts: 192.168.168.205
   connection: network_cli
   gather_facts: false
   tasks:
@@ -13,12 +13,12 @@ Playbook:
        become_method: enable
        become: yes
 
-Host file
-all:
-  children:
-    test:
-      hosts:
-        192.168.168.205
+#Host file
+#all:
+#  children:
+#    test:
+#      hosts:
+#        192.168.168.205
 
 Group Vars:
 ansible_connection: network_cli
